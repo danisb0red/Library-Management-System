@@ -14,6 +14,9 @@ class Book():
         txt = f"Title : {self.title}\nAuthor : {self.author}\nPublication Year : {self.publication_year}\nISBN : {self.isbn}\nAvailability Status : {status}"
         return txt
     
+    def update_availability(self, status):
+        self.availability_status = status
+    
 
 book1 = Book('xy','zk',2009,9845,True)
 print(book1.get_book_info())
