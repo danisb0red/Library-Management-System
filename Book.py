@@ -6,3 +6,14 @@ class Book():
         self.isbn = isbn
         self.availability_status = availability_status
     
+    def get_book_info(self):
+        if (self.availability_status == True):
+            status = "Available"
+        else:
+            status = "Not Available"
+        txt = f"Title : {self.title}\n Author : {self.author}\nPublication Year : {self.publication_year}\nISBN : {self.isbn}\nAvailability Status : {status}"
+        return txt
+    
+
+book1 = Book('xy','zk',2009,9845,True)
+print(book1.get_book_info())
