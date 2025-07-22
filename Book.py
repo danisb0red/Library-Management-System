@@ -11,7 +11,7 @@ class Book():
             status = "Available"
         else:
             status = "Not Available"
-        txt = f"Title : {self.title}\n Author : {self.author}\nPublication Year : {self.publication_year}\nISBN : {self.isbn}\nAvailability Status : {status}"
+        txt = f"Title : {self.title}\nAuthor : {self.author}\nPublication Year : {self.publication_year}\nISBN : {self.isbn}\nAvailability Status : {status}"
         return txt
     
 
