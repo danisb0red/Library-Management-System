@@ -14,6 +14,10 @@ class LIBRARY():
             if temp_book.availability_status == True:
                return True
       return False
+    
+   def add_book(self,book):
+      if book not in self.books_list:
+         self.books_list.append(book)
       
 
 if __name__ == "__main__":
@@ -24,3 +28,11 @@ if __name__ == "__main__":
     print(lib1.isAvailable(9845))
     print(lib1.isAvailable(98))
     print(lib1.isAvailable(9455))
+    book3 = BOOK("i","i",2005,9355,False) 
+    lib1.add_book(book3)
+    for x in lib1.books_list:
+       print(x)
+
+    lib1.add_book(book2)
+    for x in lib1.books_list:
+       print(x)

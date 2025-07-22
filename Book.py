@@ -17,6 +17,10 @@ class BOOK():
     def update_availability(self, status):
         self.availability_status = status
 
+    def __str__(self):
+        return self.title
+
+
 if __name__ == "__main__":
     book1 = BOOK('xy','zk',2009,9845,True)
     print(book1.get_book_info())
