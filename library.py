@@ -1,5 +1,5 @@
-from book import BOOK
-class LIBRARY():
+from book import Book
+class Library():
    def __init__(self, books_list):
       self.books_list = books_list
     
