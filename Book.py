@@ -1,4 +1,4 @@
-class Book():
+class BOOK():
     def __init__(self, title, author, publication_year,isbn,availability_status):
         self.title = title
         self.author = author
@@ -16,7 +16,7 @@ class Book():
     
     def update_availability(self, status):
         self.availability_status = status
-    
 
-book1 = Book('xy','zk',2009,9845,True)
-print(book1.get_book_info())
+if __name__ == "__main__":
+    book1 = BOOK('xy','zk',2009,9845,True)
+    print(book1.get_book_info())
