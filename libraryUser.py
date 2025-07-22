@@ -1,5 +1,6 @@
 from person import Person
 from book import Book
+from library import Library
 
 class LibraryUser(Person):
   def __init__(self,name, email, user_id, borrowed_books):
@@ -8,8 +9,11 @@ class LibraryUser(Person):
     self.borrowed_books = borrowed_books 
 
   def borrow_book(self, book : Book):
-    self.borrowed_books.append(book)
-    book.update_availability(False)
+    if Library.isAvailable(book.getISBN):
+        self.borrowed_books.append(book)
+        book.update_availability(False)
+    
+    
 
   def return_book(self, book:Book):
     self.borrowed_books.remove(book)
