@@ -4,14 +4,17 @@ from library import Library
 
 class LibraryUser(Person):
   def __init__(self,name, email, user_id, borrowed_books):
-    super.__init__(name,email)
+    super().__init__(name,email)
     self.user_id = user_id
     self.borrowed_books = borrowed_books 
 
   def borrow_book(self, book : Book):
-    if Library.isAvailable(book.getISBN):
+    if Library.isAvailable(book.getISBN()):
         self.borrowed_books.append(book)
         book.update_availability(False)
+        print(self.name, " Borrowed ",book.getTitle(),"\n")
+    else:
+      print(book.getTitle()," Not Available.\n")
     
     
 
