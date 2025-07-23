@@ -31,7 +31,6 @@ class Book(LibraryItem):
 
     def getTitle(self):
         return self.__title
-
     
 
 

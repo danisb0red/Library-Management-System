@@ -13,7 +13,7 @@ class Magazine(LibraryItem):
             status = "Available"
         else:
             status = "Not Available"
-        txt = f"Title : {self.title}\nPublication Year : {self.publication_year}\nISSN : {self.issn}\nAvailability Status : {status}"
+        txt = f"Title : {self.getTitle()}\nPublication Year : {self.publication_year}\nISSN : {self.getISSN()}\nAvailability Status : {status}"
         return txt
     
     def getISSN(self):
