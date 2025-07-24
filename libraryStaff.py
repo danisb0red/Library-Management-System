@@ -52,7 +52,7 @@ class LibraryStaff(Person):
         mag.update_availability(False)
         print(self.name, " Borrowed ",mag.getTitle(),"\n")
         y = datetime.date.today()
-        mag.set_borrow_date(x)
+        mag.set_borrow_date(y)
 
     
    
