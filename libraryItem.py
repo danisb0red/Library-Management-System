@@ -5,6 +5,8 @@ class LibraryItem(ABC):
     def __init__(self,type):
         super().__init__()
         self.type = type
+        self.borrow_date = None
+        self.return_date = None
 
 
     def borrow_item(self):
@@ -26,3 +28,14 @@ class LibraryItem(ABC):
         return(random_string)
     
     
+    def set_borrow_date(self,date):
+        self.borrow_date = date
+
+    def set_return_date(self,date):
+        self.return_date = date
+
+    def get_borrow_date(self):
+        return self.borrow_date
+
+    def get_return_date(self):
+        return self.return_date

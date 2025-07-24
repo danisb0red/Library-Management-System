@@ -2,6 +2,7 @@ from book import Book
 #from person import Person
 #from libraryStaff import LibraryStaff
 #from libraryUser import LibraryUser
+import datetime
 
 class Library():
     
@@ -70,7 +71,41 @@ class Library():
       for temp_mag in Library.magazines_list:
          print("Title: ",temp_mag.getTitle()," Status:", "available" if temp_mag.availability_status else "not available","ISSN : ", temp_mag.getISSN())
          print("\n")
-      
+
+
+
+
+   def create_book_report():
+    with open("lib_report.txt", "w") as f:
+        f.write("BOOKS:\n")
+        for tempbook in Library.books_list:
+           # print("inside")
+            bdate = tempbook.get_borrow_date()
+            today = datetime.date.today()
+            if (bdate != None):
+               dayspast = (today - bdate).days
+               past_due = dayspast >= 7
+            else:
+               past_due = False
+
+            f.write(f"Title: {tempbook.getTitle()}, Borrow Date: {bdate}, {'Overdue!' if past_due else 'Not Overdue'}\n")
+
+        f.write("\nMAGAZINES:\n")
+        for tempmag in Library.magazines_list:
+            bdate = tempmag.get_borrow_date()
+            today = datetime.date.today()
+            if (bdate != None):
+               dayspast = (today - bdate).days
+               past_due = dayspast >= 7
+            else:
+               past_due = False
+
+            f.write(f"Title: {tempmag.getTitle()}, Borrow Date: {bdate}, {'Overdue!' if past_due else 'Not Overdue'}\n")
+    with open("lib_report.txt","r") as f:
+       lines = f.readlines()
+       for line in lines:
+          print(line)
+   
       
     
       

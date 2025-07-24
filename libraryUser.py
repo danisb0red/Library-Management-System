@@ -3,12 +3,13 @@ from book import Book
 from library import Library
 from magazine import Magazine
 from libraryItem import LibraryItem
+import datetime
 class LibraryUser(Person):
   def __init__(self,name, email, user_id, borrowed_books, borrowed_magazines):
-    super().__init__(name,email)
-    self.user_id = user_id
-    self.borrowed_books = borrowed_books 
-    self.borrowed_magazines = borrowed_magazines
+    super().__init__(name,email,user_id,borrowed_books,borrowed_magazines)
+    #self.user_id = user_id
+    #self.borrowed_books = borrowed_books 
+    #self.borrowed_magazines = borrowed_magazines
 
   def borrow_item(self, item : LibraryItem):
     if (item.type == "Book"):
@@ -17,6 +18,8 @@ class LibraryUser(Person):
         self.borrowed_books.append(book)
         book.update_availability(False)
         print(" Borrowed ",book.getTitle(),"\n")
+        x = datetime.date.today()
+        book.set_borrow_date(x)
       else:
         print(book.getTitle()," Not Available.\n")
     elif (item.type == "Magazine"):
@@ -24,24 +27,10 @@ class LibraryUser(Person):
       if Library.isAvailable("Magazine",mag.getISSN()):
         self.borrowed_magazines.append(mag)
         mag.update_availability(False)
-        print(self.name, " Borrowed ",book.getTitle(),"\n")
+        print(self.name, " Borrowed ",mag.getTitle(),"\n")
+        y = datetime.date.today()
+        mag.set_borrow_date(y)
 
-  def show_items(self):
-    print("Books : ")
-    count = 1
-    for tempbook in self.borrowed_books:
+  
 
-      print(count,". ",tempbook.getTitle())
-    count =1
-    for tempmag in self.borrowed_magazines:
-      print(count,". ",tempmag.getTitle())
-
-       
-
-  def return_book(self, book:Book):
-    self.borrowed_books.remove(book)
-    book.update_availability(True)
-  def return_magazine(self,mag: Magazine):
-    self.borrowed_magazines.remove(mag)
-    mag.update_availability(True)
 

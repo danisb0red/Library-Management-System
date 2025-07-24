@@ -5,8 +5,8 @@ class Book(LibraryItem):
         self.__title = title
         self.author = author
         self.publication_year = publication_year
-        self.__isbn = isbn
-       # self.__isbn = self.generate_random_string()
+       #self.__isbn = isbn
+        self.__isbn = LibraryItem.generate_random_string()
         self.availability_status = availability_status
     
     def get_item_info(self):

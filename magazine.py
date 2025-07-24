@@ -3,7 +3,7 @@ class Magazine(LibraryItem):
     def __init__(self, title, publication_year,issn, availability_status):
         super().__init__("Magazine")
         self.publication_year = publication_year
-        self.__issn = issn
+        self.__issn = LibraryItem.generate_random_string()
         # self.__issn = self.generate_random_string()
         self.__title = title
         self.availability_status = availability_status
